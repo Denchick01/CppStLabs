@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdlib>
 #include <cmath>
+#include <regex>
 
 int main () {
     long long unsigned int input_value = 0;
@@ -14,12 +15,14 @@ int main () {
 	return 0;
     }
 
-    if (input_string.find_first_not_of("1234567890") != std::string::npos) {
+    std::regex pat("(\\+|0)?[[:digit:]]+");
+
+    if (!std::regex_match(input_string, pat)) {
         std::cout << 0;
         return 0;
     }
 
-    input_value = atol(input_string.c_str());
+    input_value = std::stoll(input_string);
 
 
     if (fmodl (sqrtl(8 * input_value + 1), 1)) {
