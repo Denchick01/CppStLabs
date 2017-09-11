@@ -32,17 +32,12 @@ int main () {
 
     long double des = 1 - 8 * (-input_value);
 
-    long double value_num = 0;
+    long long unsigned int value_num = 0;
 
     if (des >= 0) { 
         value_num = (-1 + sqrtl(des)) / 2;
     }
     else {
-	std::cout << 0;
-	return 0;
-    }
-
-    if (fmodl (value_num, 1)) {
 	std::cout << 0;
 	return 0;
     }
